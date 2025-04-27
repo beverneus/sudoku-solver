@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 // Sudoku puzzle to be solved, empty squares are marked with 0
 int puzzle[9][9] = {
@@ -13,6 +14,21 @@ int puzzle[9][9] = {
     {7, 0, 3, 0, 1, 8, 0, 0, 0}
 };
 
+void getEmptyCells(std::vector<std::pair<int,int>>& emptyCells) {
+    for (int i=0; i<9; i++) {
+        for (int j=0; j<9; j++) {
+            if (puzzle[i][j] == 0) {
+                emptyCells.push_back({i, j});
+            } 
+        }
+    }
+}
+
 int main() {
+    // get coordinates of empty cells
+    std::vector<std::pair<int, int>> emptyCells;
+    emptyCells.reserve(64); // reserve space for 64 elements, the maximum amount of empty cells in a sudoku puzzle
+    getEmptyCells(emptyCells);
+
     return 0;
 }
