@@ -1,0 +1,1 @@
+Solves a sudoku using the backtracking algorithm.
